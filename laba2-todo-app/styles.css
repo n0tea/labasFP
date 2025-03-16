@@ -1,32 +1,57 @@
-body {
-    font-family: Arial, sans-serif;
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 0 20px;
-}
-
-.task.completed {
-    text-decoration: line-through;
-    color: #888;
-}
-
+/* Кастомные стили */
 .task {
     display: flex;
     align-items: center;
-    margin: 5px 0;
-    padding: 10px;
-    border: 1px solid #ddd;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.task:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.task.completed {
+    background: #f8f9fa;
+    opacity: 0.8;
+}
+
+.task.completed span {
+    text-decoration: line-through;
+    color: #6c757d;
 }
 
 .task input[type="checkbox"] {
-    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    cursor: pointer;
 }
 
 .delete-btn {
     margin-left: auto;
-    background: #ff4444;
-    color: white;
+    background: #ff6b6b !important;
     border: none;
-    padding: 5px 10px;
-    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: white !important;
+    transition: background 0.2s;
+}
+
+.delete-btn:hover {
+    background: #ff5252 !important;
+}
+
+/* Кастомные цвета кнопок */
+.btn-success {
+    background: #51cf66 !important;
+    border-color: #51cf66 !important;
+}
+
+.btn-success:hover {
+    background: #40c057 !important;
 }

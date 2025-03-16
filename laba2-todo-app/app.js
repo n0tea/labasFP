@@ -3,15 +3,13 @@ let state = {
     tasks: [],          // Все задачи
     filter: 'all'       // Текущий фильтр
 };
-
-// Чистая функция для создания новой задачи
 const createTask = (text) => ({
     id: Date.now(),
     text,
     completed: false
 });
 
-// Чистая функция для фильтрации задач
+
 const filterTasks = (tasks, filter) => {
     switch(filter) {
         case 'completed': return tasks.filter(t => t.completed);
@@ -20,7 +18,6 @@ const filterTasks = (tasks, filter) => {
     }
 };
 
-// Функция высшего порядка для создания обработчика событий
 const handleTaskUpdate = (updateFn) => (taskId) => {
     state = {
         ...state,
@@ -29,7 +26,6 @@ const handleTaskUpdate = (updateFn) => (taskId) => {
     render();
 };
 
-// Иммутабельное обновление задач
 const toggleTask = (tasks, taskId) => 
     tasks.map(task => 
         task.id === taskId 
@@ -40,11 +36,9 @@ const toggleTask = (tasks, taskId) =>
 const deleteTask = (tasks, taskId) => 
     tasks.filter(task => task.id !== taskId);
 
-// Обработчики с частичным применением
 const handleToggle = handleTaskUpdate(toggleTask);
 const handleDelete = handleTaskUpdate(deleteTask);
 
-// Рендеринг задач (чистая функция)
 const renderTasks = (tasks, filter) => {
     const filtered = filterTasks(tasks, filter);
     const taskList = document.getElementById('taskList');
@@ -65,12 +59,10 @@ const renderTasks = (tasks, filter) => {
     `).join('');
 };
 
-// Общий рендер
 const render = () => {
     renderTasks(state.tasks, state.filter);
 };
 
-// Обработка добавления задачи
 const addTaskFromInput = () => {
     const input = document.getElementById('taskInput');
     if (input.value.trim()) {
@@ -83,7 +75,6 @@ const addTaskFromInput = () => {
     }
 };
 
-// Установка фильтра
 const setFilter = (filter) => {
     state = {...state, filter};
     render();
