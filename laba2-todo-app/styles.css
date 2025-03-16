@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.task.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.task input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.delete-btn {
+    margin-left: auto;
+    background: #ff4444;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}

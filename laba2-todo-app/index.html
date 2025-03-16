@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ФП Todo List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Список задач</h1>
+        <div class="input-section">
+            <input type="text" id="taskInput" placeholder="Новая задача...">
+            <button onclick="addTaskFromInput()">Добавить</button>
+        </div>
+        
+        <div class="filters">
+            <button onclick="setFilter('all')">Все</button>
+            <button onclick="setFilter('completed')">Выполненные</button>
+            <button onclick="setFilter('active')">Невыполненные</button>
+        </div>
+        
+        <ul id="taskList"></ul>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
