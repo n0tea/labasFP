@@ -1,14 +1,13 @@
-// Инициализация состояния приложения
 let state = {
     tasks: [],          // Все задачи
     filter: 'all'       // Текущий фильтр
 };
+
 const createTask = (text) => ({
     id: Date.now(),
     text,
     completed: false
 });
-
 
 const filterTasks = (tasks, filter) => {
     switch(filter) {

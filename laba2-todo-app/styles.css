@@ -1,57 +1,110 @@
-/* Кастомные стили */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.filters {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.filters button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.filters button:hover {
+    background-color: #0056b3;
+}
+
+.add-task {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.add-task input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.add-task button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-left: 10px;
+}
+
+.add-task button:hover {
+    background-color: #218838;
+}
+
+.task-list {
+    list-style-type: none;
+    padding: 0;
+}
+
 .task {
     display: flex;
     align-items: center;
-    padding: 12px 15px;
-    margin-bottom: 8px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-}
-
-.task:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.task.completed {
-    background: #f8f9fa;
-    opacity: 0.8;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    background-color: #f9f9f9;
 }
 
 .task.completed span {
     text-decoration: line-through;
-    color: #6c757d;
+    opacity: 0.7;
+}
+
+.task.completed .delete-btn {
+    text-decoration: none;
+    opacity: 1;
 }
 
 .task input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    margin-right: 12px;
-    cursor: pointer;
+    margin-right: 10px;
 }
 
-.delete-btn {
-    margin-left: auto;
-    background: #ff6b6b !important;
+.task span {
+    flex: 1;
+}
+
+.task .delete-btn {
+    background-color: #dc3545;
+    color: white;
     border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-    color: white !important;
-    transition: background 0.2s;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
 }
 
-.delete-btn:hover {
-    background: #ff5252 !important;
-}
-
-/* Кастомные цвета кнопок */
-.btn-success {
-    background: #51cf66 !important;
-    border-color: #51cf66 !important;
-}
-
-.btn-success:hover {
-    background: #40c057 !important;
+.task .delete-btn:hover {
+    background-color: #c82333;
 }
