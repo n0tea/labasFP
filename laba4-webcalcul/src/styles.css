@@ -27,7 +27,22 @@ body {
     padding: 10px;
     box-sizing: border-box;
 }
+.display-container {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+}
 
+.operation-display {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+}
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

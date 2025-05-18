@@ -8,7 +8,12 @@
 </head>
 <body>
     <div class="calculator">
-        <input type="text" class="display" id="display" readonly>
+        <div class="display-container">
+            <input type="text" class="display" id="display" readonly>
+            <div class="operation-display" id="operationDisplay"></div>
+            
+        </div>
+        
         <div class="buttons">
             <button class="btn operator" data-value="√">√</button>
             <button class="btn operator" data-value="^">^</button>

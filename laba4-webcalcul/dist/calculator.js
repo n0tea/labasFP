@@ -5,6 +5,7 @@ const initialState = {
     previousValue: '',
     operation: null,
     resetScreen: false,
+    displayedOperation: '',
 };
 // Чистые функции для операций
 const operations = {
@@ -27,7 +28,7 @@ const appendDecimal = (state) => {
     }
     return Object.assign(Object.assign({}, state), { currentValue: state.currentValue.includes('.') ? state.currentValue : state.currentValue + '.' });
 };
-const setOperation = (state, operation) => (Object.assign(Object.assign({}, state), { previousValue: state.currentValue, operation, resetScreen: true }));
+const setOperation = (state, operation) => (Object.assign(Object.assign({}, state), { previousValue: state.currentValue, operation, displayedOperation: operation, resetScreen: true }));
 const calculate = (state) => {
     if (state.operation === null)
         return state;
@@ -37,7 +38,7 @@ const calculate = (state) => {
     if (state.operation in operations) {
         result = operations[state.operation](prev, current);
     }
-    return Object.assign(Object.assign({}, state), { currentValue: result.toString(), previousValue: '', operation: null, resetScreen: true });
+    return Object.assign(Object.assign({}, state), { currentValue: result.toString(), previousValue: '', operation: null, displayedOperation: '', resetScreen: true });
 };
 const calculateSquareRoot = (state) => (Object.assign(Object.assign({}, state), { currentValue: Math.sqrt(parseFloat(state.currentValue)).toString(), resetScreen: true }));
 const clear = () => (Object.assign({}, initialState));
@@ -75,6 +76,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let state = initialState;
     const updateDisplay = () => {
         display.value = state.currentValue;
+        const operationDisplay = document.getElementById('operationDisplay');
+        operationDisplay.textContent = state.displayedOperation;
     };
     const handleButtonClick = (event) => {
         const target = event.target;

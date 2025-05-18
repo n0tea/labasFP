@@ -4,6 +4,7 @@ type CalculatorState = {
     previousValue: string;
     operation: string | null;
     resetScreen: boolean;
+    displayedOperation: string;
 };
 
 type OperationFunction = (a: number, b: number) => number;
@@ -14,6 +15,7 @@ const initialState: CalculatorState = {
     previousValue: '',
     operation: null,
     resetScreen: false,
+    displayedOperation: '',
 };
 
 // Чистые функции для операций
@@ -58,6 +60,7 @@ const setOperation = (state: CalculatorState, operation: string): CalculatorStat
     ...state,
     previousValue: state.currentValue,
     operation,
+    displayedOperation: operation, // добавил сейв операции для отображения во вводе
     resetScreen: true,
 });
 
@@ -77,6 +80,7 @@ const calculate = (state: CalculatorState): CalculatorState => {
         currentValue: result.toString(),
         previousValue: '',
         operation: null,
+        displayedOperation: '',
         resetScreen: true,
     };
 };
@@ -128,6 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updateDisplay = () => {
         display.value = state.currentValue;
+        const operationDisplay = document.getElementById('operationDisplay') as HTMLDivElement;
+        operationDisplay.textContent = state.displayedOperation;
     };
 
     const handleButtonClick = (event: Event) => {
